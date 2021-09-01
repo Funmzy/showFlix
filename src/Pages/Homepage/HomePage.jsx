@@ -15,6 +15,8 @@ const HomePage = () => {
         <MovieCard />
         <MovieCard />
         <MovieCard />
+        <MovieCard />
+        <MovieCard />
       </div>
     </div>
   );

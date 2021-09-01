@@ -15,12 +15,67 @@
   width: 84vw;
 }
 
+@media only screen and (max-width: 1193px) {
+  .space {
+    width: 70vw;
+  }
+}
+
+@media only screen and (max-width: 915px) {
+  .space {
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 657px) {
+  .space {
+    width: 50vw;
+  }
+}
+
+@media only screen and (max-width: 379px) {
+  .space {
+    width: 0;
+  }
+}
+
 .modal {
   background-color: #ffffff;
   width: 26vw;
   max-height: 100vh;
   padding: 4rem 4rem 0 4rem;
   overflow: scroll;
+  padding-bottom: 4rem;
+}
+
+@media only screen and (max-width: 1193px) {
+  .modal {
+    width: 30vw;
+  }
+}
+
+@media only screen and (max-width: 915px) {
+  .modal {
+    width: 40vw;
+  }
+}
+
+@media only screen and (max-width: 657px) {
+  .modal {
+    width: 80vw;
+  }
+}
+
+@media only screen and (max-width: 439px) {
+  .modal {
+    width: 90vw;
+  }
+}
+
+@media only screen and (max-width: 379px) {
+  .modal {
+    width: 100vw;
+  }
 }
 
 .arrow-box {

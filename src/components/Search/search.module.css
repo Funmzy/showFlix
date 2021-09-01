@@ -10,10 +10,28 @@
   width: 100%;
 }
 
+@media only screen and (max-width: 482px) {
+  .form {
+    flex-direction: column;
+  }
+}
+
 .input-container {
   margin-right: 5%;
   width: 77%;
   position: relative;
+}
+
+@media only screen and (max-width: 680px) {
+  .input-container {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 482px) {
+  .input-container {
+    width: 100%;
+  }
 }
 
 .search-input {
@@ -23,6 +41,12 @@
   font-size: 1.7rem;
   border-radius: 17px;
   width: 100%;
+}
+
+@media only screen and (max-width: 815px) {
+  .search-input {
+    padding: 1.6rem 6rem;
+  }
 }
 
 .search-icon {
@@ -40,4 +64,11 @@
   font-size: 1.6rem;
   letter-spacing: 1px;
   text-transform: capitalize;
+}
+
+@media only screen and (max-width: 482px) {
+  .search-btn {
+    margin-top: 2rem;
+    padding: 1rem 1rem;
+  }
 }

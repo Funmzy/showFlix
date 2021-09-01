@@ -6,6 +6,15 @@ import { useHistory } from "react-router-dom";
 const MoviesDetailPage = () => {
   const history = useHistory();
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+    document.body.classList.add("overflow-hidden");
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
+
   return (
     <div className={classes["root"]}>
       <div className={classes["content"]}>

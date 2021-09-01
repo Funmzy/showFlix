@@ -52,15 +52,9 @@ const MoviePage = () => {
       <div className={classes["similar-movie"]}>
         <h className={classes["movie-title"]}>Similar Movies</h>
         <div className={classes["similar-movies-container"]}>
-          <div className={classes["card-wrapper"]}>
-            <MovieCard />
-          </div>
-          <div className={classes["card-wrapper"]}>
-            <MovieCard />
-          </div>
-          <div className={classes["card-wrapper"]}>
-            <MovieCard />
-          </div>
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
         </div>
       </div>
     </div>

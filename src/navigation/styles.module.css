@@ -8,6 +8,13 @@
   min-height: 100vh;
 }
 
+@media only screen and (max-width: 1141px) {
+  .sidebar {
+    /* width: 0 */
+    display: none;
+  }
+}
+
 .sidebar-title {
   font-size: 3.2rem;
   margin-top: 3rem;
@@ -20,6 +27,12 @@
 }
 
 .search {
-  padding: 10.5rem 6rem 0 6rem;
+  padding: 10.5rem 6rem 5rem 6rem;
   width: 100%;
+}
+
+@media only screen and (max-width: 815px) {
+  .search {
+    padding: 3rem 3rem 3rem 3rem;
+  }
 }

@@ -10,12 +10,25 @@
   margin-left: 5rem;
 }
 
+@media only screen and (max-width: 996px) {
+  .nav-icon-container {
+    margin-left: 2rem;
+    margin-right: 2.5rem;
+  }
+}
+
 .nav-link {
   display: flex;
   text-decoration: none;
   align-items: center;
   margin-bottom: 5rem;
   position: relative;
+}
+
+@media only screen and (max-width: 996px) {
+  .nav-link {
+    margin-bottom: 2rem;
+  }
 }
 
 .nav-active::before {
@@ -25,6 +38,13 @@
   position: absolute;
   background-color: var(--color-primary);
   border-radius: 3px;
+}
+
+@media only screen and (max-width: 996px) {
+  .nav-active::before {
+    width: 0.4rem;
+    border-radius: 2px;
+  }
 }
 
 .nav-active {
