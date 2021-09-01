@@ -40,7 +40,7 @@ const Sidebar = () => {
         <p className={classes["nav-text"]}>Search</p>
       </NavLink>
       <NavLink
-        to="/watch"
+        to="movie/test"
         activeClassName={classes["nav-active"]}
         className={classes["nav-link"]}
       >

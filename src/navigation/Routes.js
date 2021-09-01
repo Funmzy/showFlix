@@ -2,21 +2,33 @@ import React from "react";
 import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import HomePage from "../Pages/Homepage/HomePage";
 import MoviesDetailPage from "../Pages/MoviesDetailPage/MoviesDetailPage";
+import MoviePage from "../Pages/MoviePage/MoviePage";
+import Sidebar from "../components/Sidebar/Sidebar";
+import classes from "./styles.module.css";
 
 const Routes = () => {
   const location = useLocation();
   const background = location.state && location.state.background;
 
   return (
-    <React.Fragment>
-      <Switch location={background || location}>
-        <Route exact path="/" component={HomePage} />
-        <Redirect to="/" />
-      </Switch>
+    <div className={classes.home}>
+      <nav className={classes.sidebar}>
+        <h1 className={classes["sidebar-title"]}>
+          Show<span className={classes["sidebar-title-span"]}>Flix</span>
+        </h1>
+        <Sidebar />
+      </nav>
+      <main className={classes.search}>
+        <Switch location={background || location}>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/movie/:id" component={MoviePage} />
+          <Redirect to="/" />
+        </Switch>
+      </main>
       {background && (
         <Route path="/movies-detail/:id" children={<MoviesDetailPage />} />
       )}
-    </React.Fragment>
+    </div>
   );
 };
 
