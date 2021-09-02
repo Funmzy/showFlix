@@ -22,8 +22,9 @@
 }
 
 .card-btn {
+  text-decoration: none;
   background-color: var(--color-light-grey);
-  padding: 1.4rem 4.5rem;
+  padding: 1rem 4.5rem;
   border: none;
   color: var(--color-text);
   font-size: 1.4rem;

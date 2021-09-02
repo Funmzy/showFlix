@@ -42,6 +42,7 @@
 .modal {
   background-color: #ffffff;
   width: 26vw;
+  min-height: 100vh;
   max-height: 100vh;
   padding: 4rem 4rem 0 4rem;
   overflow: scroll;

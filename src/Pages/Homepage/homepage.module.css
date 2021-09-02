@@ -58,3 +58,10 @@
     justify-content: center;
   }
 }
+
+.search-q {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+}
