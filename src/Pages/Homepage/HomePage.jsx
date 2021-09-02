@@ -3,6 +3,9 @@ import classes from "./homepage.module.css";
 import Search from "../../components/Search/Search";
 import MovieCard from "../../components/movieCard/MovieCard";
 import { useSelector } from "react-redux";
+import Loader from "react-loader-spinner";
+import { motion } from "framer-motion";
+import { pageTransition, transit } from "../../animation/animate";
 
 const HomePage = () => {
   const movies = useSelector((state) => state.search.movies);
@@ -16,7 +19,13 @@ const HomePage = () => {
   }, [movies]);
 
   return (
-    <div>
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageTransition}
+      transition={transit}
+    >
       <Search />
       {!movies && !errMsg && !isSearching && (
         <div className={classes["search-q"]}>
@@ -33,14 +42,18 @@ const HomePage = () => {
         {/* <p className={classes["search-res"]}>Results for:</p> */}
         {/* <h4 className={classes["search-title"]}>Mortal Kombat</h4> */}
       </div>
-      {isSearching && <h1>LOADING....</h1>}
+      {isSearching && (
+        <div className={classes["search-q"]}>
+          <Loader type="Oval" color="#5f2eea" height={40} width={40} />
+        </div>
+      )}
       <div className={classes["movies-result"]}>
         {movies &&
           movies.Search.map((movie) => (
             <MovieCard key={movie.imdbID} movie={movie} />
           ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

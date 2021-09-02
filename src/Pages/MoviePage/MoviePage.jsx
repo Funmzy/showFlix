@@ -10,6 +10,9 @@ import { FiPlay } from "react-icons/fi";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { asyncGetMovie, removeMovie } from "../../redux/actions/movie.action";
+import Loader from "react-loader-spinner";
+import { motion } from "framer-motion";
+import { pageTransition, transit } from "../../animation/animate";
 
 function timeConvert(n) {
   var num = n;
@@ -37,10 +40,28 @@ const MoviePage = () => {
     };
   }, [dispatch, id]);
   return (
-    <div className={classes["root"]}>
-      {isGettingMovie && !movieErrMsg && !movie && <h1>LOADING......</h1>}
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageTransition}
+      transition={transit}
+      className={classes["root"]}
+    >
+      {isGettingMovie && !movieErrMsg && !movie && (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "50vh",
+          }}
+        >
+          <Loader type="Oval" color="#5f2eea" height={40} width={40} />
+        </div>
+      )}
       {!isGettingMovie && movie && !movieErrMsg && (
-        <>
+        <motion.div>
           <div className={classes["current-movie"]}>
             <figure className={classes["current-img-box"]}>
               <img
@@ -84,9 +105,9 @@ const MoviePage = () => {
           <MovieCard /> */}
             </div>
           </div>
-        </>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

@@ -4,6 +4,9 @@ import { BsArrowLeft } from "react-icons/bs";
 import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { asyncGetMovie, removeMovie } from "../../redux/actions/movie.action";
+import Loader from "react-loader-spinner";
+import { motion } from "framer-motion";
+import { pageTransition, transit } from "../../animation/animate";
 
 const MoviesDetailPage = () => {
   const history = useHistory();
@@ -39,9 +42,26 @@ const MoviesDetailPage = () => {
           >
             <BsArrowLeft className={classes["arrow-back"]} />
           </div>
-          {isGettingMovie && !movieErrMsg && !movie && <h1>LOADING......</h1>}
+          {isGettingMovie && !movieErrMsg && !movie && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "80vh",
+              }}
+            >
+              <Loader type="Oval" color="#5f2eea" height={40} width={40} />
+            </div>
+          )}
           {!isGettingMovie && movie && !movieErrMsg && (
-            <div>
+            <motion.div
+              initial="out"
+              animate="in"
+              exit="out"
+              variants={pageTransition}
+              transition={transit}
+            >
               <figure className={classes["img-box"]}>
                 <img
                   className={classes["img"]}
@@ -51,7 +71,7 @@ const MoviesDetailPage = () => {
               </figure>
               <h3 className={classes["title"]}>{movie.Title}</h3>
               <p className={classes["text"]}>{movie.Plot}</p>
-            </div>
+            </motion.div>
           )}
         </div>
       </div>

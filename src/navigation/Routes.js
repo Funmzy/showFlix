@@ -5,6 +5,7 @@ import MoviesDetailPage from "../Pages/MoviesDetailPage/MoviesDetailPage";
 import MoviePage from "../Pages/MoviePage/MoviePage";
 import Sidebar from "../components/Sidebar/Sidebar";
 import classes from "./styles.module.css";
+import { AnimatePresence } from "framer-motion";
 
 const Routes = () => {
   const location = useLocation();
@@ -19,11 +20,13 @@ const Routes = () => {
         <Sidebar />
       </nav>
       <main className={classes.search}>
-        <Switch location={background || location}>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/movie/:id" component={MoviePage} />
-          <Redirect to="/" />
-        </Switch>
+        <AnimatePresence exitBeforeEnter>
+          <Switch location={background || location}>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/movie/:id" component={MoviePage} />
+            <Redirect to="/" />
+          </Switch>
+        </AnimatePresence>
       </main>
       {background && (
         <Route path="/movies-detail/:id" children={<MoviesDetailPage />} />
