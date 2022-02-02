@@ -39,7 +39,7 @@ const Sidebar = () => {
         </figure>
         <p className={classes["nav-text"]}>Search</p>
       </NavLink>
-      <div
+      {/* <div
         // to="movie/test"
         style={{ cursor: "pointer" }}
         activeClassName={classes["nav-active"]}
@@ -64,7 +64,7 @@ const Sidebar = () => {
           </svg>
         </figure>
         <p className={classes["nav-text"]}>WatchList</p>
-      </div>
+      </div> */}
     </div>
   );
 };
